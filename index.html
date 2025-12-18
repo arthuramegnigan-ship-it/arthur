@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISRAEL-UNITED.COM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #1f4b99;
+      --deep-blue: #0f2c60;
+      --light: #f4f7fb;
+      --text: #0a0f1a;
+      --accent: #4f81ff;
+      --muted: #6c7a99;
+      --border: #dbe4ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Unbounded', 'Space Grotesk', system-ui, sans-serif;
+      margin-top: 0;
+      color: var(--deep-blue);
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(244, 247, 251, 0.96);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--deep-blue);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .nav-links a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: #e7edff;
+      color: var(--deep-blue);
+      outline: none;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 32px auto 20px;
+      padding: 24px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .hero-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(10, 26, 59, 0.06);
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--blue);
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn.secondary {
+      background: white;
+      color: var(--blue);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(31, 75, 153, 0.22);
+      outline: none;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 28px;
+      padding: 0 20px;
+    }
+
+    .section-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 22px rgba(12, 24, 54, 0.05);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #e7edff;
+      color: var(--deep-blue);
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: 1px solid #d0dbff;
+    }
+
+    .list {
+      padding-left: 20px;
+      margin: 8px 0 0;
+    }
+
+    .list li {
+      margin-bottom: 8px;
+    }
+
+    .donor-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .donor-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #f8fbff;
+    }
+
+    .donor-card h4 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: var(--deep-blue);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .metric {
+      margin-top: 8px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    label {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+      color: var(--deep-blue);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      background: white;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input:focus-visible, textarea:focus-visible {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(79, 129, 255, 0.14);
+    }
+
+    .slider-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    input[type="range"] {
+      accent-color: var(--blue);
+      cursor: pointer;
+    }
+
+    .inline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .excerpt {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .timeline {
+      border-left: 3px solid var(--blue);
+      padding-left: 14px;
+      margin-top: 8px;
+    }
+
+    .timeline-item {
+      margin-bottom: 14px;
+    }
+
+    .stripe-card {
+      border: 1px solid var(--border);
+      background: #eef3ff;
+      padding: 18px;
+      border-radius: 12px;
+    }
+
+    .heart-burst {
+      position: relative;
+      height: 0;
+      margin-top: 6px;
+    }
+
+    .heart {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #3d73ff;
+      transform: rotate(45deg);
+      animation: float 1.2s ease-out forwards;
+      opacity: 0.9;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #3d73ff;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -6px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -6px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(45deg); opacity: 1; }
+      60% { opacity: 0.9; }
+      100% { transform: translate(var(--tx), -80px) rotate(45deg); opacity: 0; }
+    }
+
+    .thank-you {
+      margin-top: 10px;
+      font-weight: 700;
+      color: var(--deep-blue);
+    }
+
+    footer {
+      max-width: 1200px;
+      margin: 26px auto 40px;
+      padding: 0 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        justify-content: center;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand" aria-label="Nom du site">ISRAEL-UNITED.COM</div>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#accueil">Accueil</a>
+        <a href="#histoire">Histoire</a>
+        <a href="#pourquoi">Pourquoi soutenir Israël</a>
+        <a href="#communaute">Communauté</a>
+        <a href="#donateurs">Donateurs</a>
+        <a href="#dons">Soutenir</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="accueil" class="hero">
+      <div class="hero-card">
+        <h1>ISRAEL-UNITED.COM</h1>
+        <p class="tagline">Plateforme d’information, d’argumentation et d’action pour soutenir Israël avec clarté et humanité. Un espace 100% texte, sans artifices, qui distingue le don symbolique du don financier.</p>
+        <div class="buttons">
+          <a class="btn" href="#don-amour">Faire un don d’amour</a>
+          <a class="btn secondary" href="#don-euros">Faire un don €</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h2>Une ligne assumée</h2>
+        <p>Nous affirmons une position pro-Israël attachée à la sécurité des civils, à la dignité humaine et à la lutte contre l’antisémitisme. Ce site rassemble des voix, des analyses et des soutiens concrets.</p>
+        <p>Deux formes de contribution coexistent :</p>
+        <ul class="list">
+          <li>Un don d’amour, public et symbolique, pour exprimer une solidarité visible.</li>
+          <li>Un don en euros, sécurisé via Stripe, pour soutenir des initiatives et relais de terrain.</li>
+        </ul>
+      </div>
+      <div class="hero-card">
+        <h3>Extrait des derniers soutiens</h3>
+        <div id="excerpt" class="excerpt" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="histoire" class="section">
+      <div class="section-card">
+        <h2>Histoire</h2>
+        <div class="two-col">
+          <div>
+            <p>Israël est né d’un double impératif : la sécurité des populations juives persécutées et le droit à l’autodétermination sur une terre à laquelle elles sont historiquement attachées. Le projet national a toujours été traversé par une tension entre accueil, protection et recherche d’équilibres géopolitiques difficiles.</p>
+            <p>Les guerres, les accords, les processus de paix inachevés et les tentatives diplomatiques ont dessiné une histoire dense. Les citoyens israéliens ont dû concilier défense, innovation et pluralité interne tout en restant exposés à des menaces récurrentes.</p>
+          </div>
+          <div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <strong>Repères historiques</strong>
+                <p class="muted">Du mandat britannique aux indépendances régionales, en passant par les accords de paix partiels, chaque étape a façonné la perception d’Israël et de ses voisins.</p>
+              </div>
+              <div class="timeline-item">
+                <strong>Mise en contexte du conflit</strong>
+                <p class="muted">Le conflit est multidimensionnel : sécuritaire, territorial, identitaire et mémoriel. Il requiert une lecture précise des menaces et des dynamiques internes des sociétés concernées.</p>
+              </div>
+              <div class="timeline-item">
+                <strong>Question de la sécurité</strong>
+                <p class="muted">La sécurité des civils reste un impératif moral. Les populations israéliennes vivent avec la nécessité d’alertes, d’abris et de décisions rapides pour protéger leurs familles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pourquoi" class="section">
+      <div class="section-card">
+        <h2>Pourquoi soutenir Israël ?</h2>
+        <div class="two-col">
+          <div>
+            <p>Soutenir Israël, c’est défendre la sécurité des civils et le refus de la violence dirigée contre les innocents. C’est aussi affirmer que la vie juive a droit à la sérénité, à la culture et à la transmission. Face aux discours qui banalisent l’antisémitisme ou relativisent les attaques contre les citoyens israéliens, il faut réaffirmer une ligne claire.</p>
+            <p>La paix ne peut être un slogan abstrait : elle exige le respect des engagements, la reconnaissance mutuelle et la fin des incitations à la haine. Un soutien lucide contribue à la stabilité régionale et à la possibilité d’une coexistence sécurisée.</p>
+          </div>
+          <div>
+            <ul class="list">
+              <li><strong>Défense de la sécurité des civils :</strong> protéger les familles, les écoles, les lieux de vie.</li>
+              <li><strong>Refus de la violence contre les innocents :</strong> dénoncer les attaques aveugles et les prises d’otages.</li>
+              <li><strong>Lutte contre l’antisémitisme :</strong> nommer le danger, le prévenir, y répondre par l’éducation et le droit.</li>
+              <li><strong>Vision d’une paix réaliste :</strong> associer fermeté sécuritaire et ouverture aux initiatives de coexistence lorsque les conditions sont réunies.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="communaute" class="section">
+      <div class="section-card">
+        <h2>Communauté</h2>
+        <div class="two-col">
+          <div>
+            <p>La vie juive est porteuse d’une identité positive : elle associe la transmission familiale, l’étude, la solidarité et une résilience patiemment construite. Israël en est un prolongement collectif qui protège cette continuité.</p>
+            <p>Rappeler cette dimension, c’est refuser la réduction à la peur ou à la violence. La communauté israélienne et juive mondiale cherche à vivre, à créer, à partager une culture et une vision de la dignité humaine.</p>
+          </div>
+          <div>
+            <div class="chips">
+              <span class="chip">Transmission</span>
+              <span class="chip">Solidarité</span>
+              <span class="chip">Résilience</span>
+              <span class="chip">Culture</span>
+              <span class="chip">Sens de la vie</span>
+              <span class="chip">Dignité</span>
+            </div>
+            <p style="margin-top:12px;">En soutenant Israël, on soutient aussi une communauté qui s’efforce de conjuguer protection, justice et humanité. Les initiatives sociales, éducatives et culturelles témoignent d’un engagement concret pour la cohésion et la liberté de vivre sans peur.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="donateurs" class="section">
+      <div class="section-card">
+        <h2>Donateurs</h2>
+        <p>Les dons d’amour sont publics et visibles. Ils expriment une solidarité assumée et constituent un livre d’or engagé. Chaque soutien est affiché avec son message et le nombre de cœurs envoyés.</p>
+        <div id="donor-list" class="donor-list" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="dons" class="section">
+      <div class="section-card two-col">
+        <div id="don-amour">
+          <h2>Don d’amour</h2>
+          <p>Le don d’amour est symbolique, public et immédiatement visible. Il ne remplace pas un soutien financier, mais il manifeste une présence et une voix collective. Aucun prélèvement, aucune contrepartie : uniquement la force d’un message partagé.</p>
+          <form id="love-form">
+            <div class="form-grid">
+              <div>
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" placeholder="Votre nom ou pseudonyme" required>
+              </div>
+              <div>
+                <label for="profile">Profil / description</label>
+                <input id="profile" name="profile" type="text" placeholder="Optionnel (profession, lieu, lien)">
+              </div>
+            </div>
+            <div style="margin-top:14px;">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Exprimez votre soutien, votre perspective, votre engagement." required></textarea>
+            </div>
+            <div style="margin-top:14px;">
+              <div class="slider-wrap">
+                <div class="inline">
+                  <label for="hearts" style="margin:0;">Nombre de cœurs</label>
+                  <strong id="heartCount" aria-live="polite">25</strong>
+                </div>
+                <input id="hearts" name="hearts" type="range" min="5" max="100" value="25" step="5" aria-label="Choisissez le nombre de cœurs">
+              </div>
+            </div>
+            <div class="buttons" style="margin-top:16px;">
+              <button class="btn" type="submit">Valider le don d’amour</button>
+            </div>
+            <div class="heart-burst" id="heartBurst" aria-hidden="true"></div>
+            <div class="thank-you" id="thankYou" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <div id="don-euros">
+          <h2>Don en euros</h2>
+          <p>Le don en euros est réel et sécurisé via Stripe. Aucune donnée bancaire n’est collectée ici : la page interne explique la démarche avant de rediriger vers Stripe. Vous pouvez choisir de continuer dans le même onglet ou dans un onglet séparé.</p>
+          <div class="stripe-card">
+            <p><strong>Comment ça marche ?</strong></p>
+            <ul class="list">
+              <li>Vous consultez les informations rassurantes et la destination du don.</li>
+              <li>Vous cliquez sur « Continuer vers le paiement ».</li>
+              <li>Vous êtes redirigé vers Stripe pour saisir vos informations en toute sécurité.</li>
+            </ul>
+            <div class="buttons" style="margin-top:12px;">
+              <a class="btn" href="https://buy.stripe.com/test_4gw9D6cdW35H5NS3cc" target="_blank" rel="noopener noreferrer">Continuer vers le paiement</a>
+            </div>
+            <p class="muted" style="margin-top:10px;">Aucune information bancaire n’est saisie sur ISRAEL-UNITED.COM. La transaction est traitée par Stripe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    ISRAEL-UNITED.COM — site indépendant, textuel et engagé. Soutien assumé à la sécurité des civils israéliens, refus de la violence contre les innocents, lutte contre l’antisémitisme, recherche d’une paix réaliste.
+  </footer>
+
+  <script>
+    const donors = [
+      { name: 'Sarah L.', profile: 'enseignante, Lyon', message: 'Solidarité totale avec les familles qui veulent simplement vivre en paix.', hearts: 40 },
+      { name: 'David R.', profile: 'médecin', message: 'Soutien clair à la sécurité des civils et à la lutte contre toute forme de haine.', hearts: 55 },
+      { name: 'Noémie et Eli', profile: 'parents, Tel Aviv', message: 'Merci à ceux qui comprennent la nécessité de protéger nos enfants.', hearts: 70 },
+      { name: 'Marc A.', profile: 'juriste', message: 'Pour un avenir où la sécurité des Juifs n’est plus négociable.', hearts: 30 },
+      { name: 'Maya K.', profile: 'étudiante', message: 'Je refuse la banalisation de l’antisémitisme. Soutien et vigilance.', hearts: 45 }
+    ];
+
+    const excerptContainer = document.getElementById('excerpt');
+    const donorList = document.getElementById('donor-list');
+    const heartSlider = document.getElementById('hearts');
+    const heartCount = document.getElementById('heartCount');
+    const loveForm = document.getElementById('love-form');
+    const thankYou = document.getElementById('thankYou');
+    const heartBurst = document.getElementById('heartBurst');
+
+    function renderExcerpt() {
+      excerptContainer.innerHTML = '';
+      donors.slice(0, 3).forEach((donor) => {
+        const card = document.createElement('div');
+        card.className = 'donor-card';
+        card.innerHTML = `
+          <h4>${donor.name}</h4>
+          <div class="muted">${donor.profile || 'Profil non communiqué'}</div>
+          <p>${donor.message}</p>
+          <div class="metric">${donor.hearts} cœurs envoyés</div>
+        `;
+        excerptContainer.appendChild(card);
+      });
+    }
+
+    function renderDonors() {
+      donorList.innerHTML = '';
+      donors.forEach((donor) => {
+        const card = document.createElement('article');
+        card.className = 'donor-card';
+        card.innerHTML = `
+          <h4>${donor.name}</h4>
+          <div class="muted">${donor.profile || 'Profil non communiqué'}</div>
+          <p>${donor.message}</p>
+          <div class="metric">${donor.hearts} cœurs envoyés</div>
+        `;
+        donorList.appendChild(card);
+      });
+    }
+
+    function burstHearts() {
+      heartBurst.innerHTML = '';
+      const total = 12;
+      for (let i = 0; i < total; i++) {
+        const heart = document.createElement('span');
+        heart.className = 'heart';
+        const tx = (Math.random() * 120 - 60).toFixed(1) + 'px';
+        heart.style.setProperty('--tx', tx);
+        heart.style.left = Math.random() * 80 + '%';
+        heartBurst.appendChild(heart);
+      }
+      setTimeout(() => heartBurst.innerHTML = '', 1300);
+    }
+
+    heartSlider.addEventListener('input', (event) => {
+      heartCount.textContent = event.target.value;
+    });
+
+    loveForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim() || 'Soutien anonyme';
+      const profile = document.getElementById('profile').value.trim();
+      const message = document.getElementById('message').value.trim() || 'Présent aux côtés des civils israéliens.';
+      const hearts = Number(heartSlider.value);
+
+      donors.unshift({ name, profile, message, hearts });
+      renderDonors();
+      renderExcerpt();
+      burstHearts();
+      thankYou.textContent = 'Merci pour votre don d’amour : votre soutien est enregistré et visible.';
+      loveForm.reset();
+      heartSlider.value = 25;
+      heartCount.textContent = '25';
+    });
+
+    renderExcerpt();
+    renderDonors();
+  </script>
+</body>
+</html>
